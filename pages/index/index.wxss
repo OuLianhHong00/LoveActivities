@@ -1,0 +1,38 @@
+/**index.wxss**/
+.userinfo {
+ width: 100%;
+ height: 120px;
+ background-color: darkslateblue;
+ color: white;
+}
+.userinfo button{
+  background-color: darkslateblue;
+}
+.img{
+  display: inline-block;
+  width: 100px;
+}
+.userinfo-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  margin: 25px 15px;
+  border-radius: 50%;
+}
+.text{
+  display: inline-block;
+  width:250px;
+}
+.userinfo-nickname {
+  color:white;
+}
+.sign{
+  font-size: 14px;
+}
+.selflist{
+  margin-top: 20px;
+  margin-left: 11px;
+}
+.selflist i-cell{
+  display: inline-block;
+  width: 93%;
+}
