@@ -4,34 +4,101 @@ Page({
    * 页面的初始数据
    */
   data: {
-    shareDetail: [
+     searchValue:"",
+    activities: [
       {
-        id: '1',
-        headimg: '../img/head.png',
-        name: '美自坚韧',
-        contentText: '我喜欢的就是这里十分美丽的风景还有这里的人文美景……',
-        contentImg: [
-          'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640',
-          'https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640',
-          'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640'
-        ],
-        time: '2019-3-18 11:41'
+        title: "喜迎青春",
+        school: "西南石油大学",
+        avatar: "https://i.loli.net/2017/08/21/599a521472424.jpg",
+        content: "在XXX时候举办喜迎青春放飞梦想的活动",
+        time: 2019 - 3 - 25,
+        likesum: 0
       },
       {
-        id: '2',
-        headimg: '../img/head.png',
-        name: '美自坚韧',
-        contentText: '我喜欢的就是这里十分美丽的风景还有这里的人文美景……',
-        contentImg: [
-          'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640',
-          'https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640',
-          'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640'
-        ],
-        time: '2019-3-18 11:41'
+        title: "清风文学社第三十九届",
+        school: "西南石油大学",
+        avatar: "https://i.loli.net/2017/08/21/599a521472424.jpg",
+        content: "在XXX时候举办喜迎青春放飞梦想的活动在XXX时候举办喜迎青春放飞梦想的活动在XXX时候举办喜迎青春放飞梦想的活动在XXX时候举办喜迎青春放飞梦想的活动",
+        time: 2019 - 3 - 25,
+        likesum: 0
       }
-    ]
+    ]    
   },
 
+  searchInput:function(e){
+    this.setData({
+      searchValue:e.detail.value
+    })
+  },
+  queryValue:function(){
+    var that=this;
+    /*
+    wx.request({
+      url: 'https://localhost/proj_online_class/server/public/index.php/forum/forum/get_issue_search/' + this.data.inputValue + /0/,
+      data: {
+        searchValue: this.data.searchValue
+      },
+      method: 'GET',
+      success: function (res) {
+        console.log(res.data)
+        var searchData = res.data
+        that.setData({
+          searchData
+        })
+
+        
+          //把 从get_issue_searchAPI 
+          //获取 提问帖子搜索 的数据 设置缓存
+         
+        wx.setStorage({
+          key: 'searchLists',
+          data: {
+            searchLists: res.data
+          }
+        })
+
+         // 设置 模糊搜索
+         
+        if (!that.data.inputValue) {
+          //没有搜索词 友情提示
+          wx.showToast({
+            title: '请重新输入',
+            image: '../../picture/tear.png',
+            duration: 2000,
+          })
+        } else if (searchData.search.length == 0) {
+          //搜索词不存在 友情提示
+          wx.showToast({
+            title: '关键词不存在',
+            image: '../../picture/tear.png',
+            duration: 2000,
+          })
+        } else {
+          //提取题目关键字 与搜索词进行匹配
+          var searchIndex = searchData.search.length
+          var d = 0;
+          for (var i = 0; i <= searchIndex - 1; i++) {
+
+            var searchTitle = searchData.search[d].title
+            console.log(searchTitle)
+            d = d + 1;
+
+            for (var x = 0; x <= searchTitle.length; x++) {
+              for (var y = 0; y <= searchTitle.length; y++) {
+                var keyWord = searchTitle.substring(x, y);
+                console.log(keyWord)
+              }
+            }
+          
+              //根据关键词 跳转到 search搜索页面
+            
+            wx.navigateTo({
+              url: '../search/search',
+            })
+          }
+        }
+        */
+  },
   /**
    * 生命周期函数--监听页面加载
    */

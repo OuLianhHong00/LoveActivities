@@ -33,7 +33,7 @@
        </navigator>
     </view>
     <view class="nav_item">
-       <navigator  url="../pillowtalk/pillowtalk" open-type="navigateBack"> 
+       <navigator  url="../pillowtalk/pillowtalk" open-type="redirect"> 
          <image src="../img/example.png" mode="scaleToFill"></image>
          <text decode="true" space="true">&ensp;悄悄话</text>
        </navigator>

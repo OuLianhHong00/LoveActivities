@@ -1,7 +1,5 @@
 {
   "usingComponents": {
-    "i-avatar":"../../dist/avatar/index",
-    "i-card":"../../dist/card/index",
     "i-icon":"../../dist/icon/index",
     "i-notice-bar": "../../dist/notice-bar/index"
   }

@@ -1,26 +1,33 @@
 <view class="container">
-   <!--分享详情展示-->
-  <view class="scroll-detail">
-    <scroll-view scroll-y="true">
-    <block wx:for="{{shareDetail}}">
-       <view class="secoll-item">
-       <view class="item-head">
-           <image src='{{item.headimg}}' mode="scaleToFill"></image>
-       </view>
-       <view class="item-detail">
-          <text id="name">{{item.name}}</text>
-          <text>{{item.contentText}}</text>
-          <block wx:for="{{item.contentImg}}" wx:for-item="obj">
-          <image src="{{obj}}" mode="scaleToFill"></image>
-          </block>
-          <view class="item-footer">
-            <image src='../img/time.png' mode='scaleToFill' id="time" ></image>
-            <text>{{item.time}}</text>
-            <image src="{{like}}" id="like" bindtap='isLike'></image>
-          </view>
-       </view>
-       </view>
-    </block>
-</scroll-view>
+  <view class="search">
+  <input value="{{seachValue}}" placeholder="输入关键词进行搜索" auto-focus bindinput='searchInput' bindconfirm='queryValue'>
+  </input>
+  <view class="icon_search">
+  <i-icon type="search" size="25" color="#FAF0E6" bindtap='queryValue'></i-icon>
+  </view>
 </view>
+  <!--活动展示，展示点赞数最多的活动-->
+   <view class="activity list">
+      <view class="post_card" wx:for="{{activities}}" wx:key="index">
+      <view  class="detail">
+        <navigator>
+           <text class="title">{{item.title}}</text>
+           <image class="act_image" src="{{item.avatar}}" mode="scaleToFill"></image>
+           <view class="content">
+               <view>{{item.content}}</view>
+            </view>
+        </navigator>
+         <view class="footer">
+                <i-icon type="coordinates" size="20" color="#80848f"></i-icon>
+                <text>{{item.school}}</text>
+                <i-icon type="clock" size="20" color="#80848f"></i-icon>
+                <text>{{item.time}}</text>
+                <i-icon type="like" size="20" color="#80848f"></i-icon>
+                <text>{{item.likesum}}</text>
+                <i-icon type="message" size="20" color="#80848f"></i-icon>
+          </view> 
+        </view>
+        <view class="hr"></view>
+      </view>
+   </view>
 </view>
