@@ -1,0 +1,35 @@
+<!--pages/chart/chart.wxml-->
+ <view class="container" >
+    <view class="head"><i-icon type="enterinto" color="#FFB6C1"/><text>发布时间：{{time}}</text></view>
+    <view class='head'><i-icon type="like_fill"  color="#FFB6C1"></i-icon>
+    <text>{{sumlike}}人喜欢</text>
+    </view>
+    <view class="title">{{activityTitle}}</view>
+    <view class="content">
+       <view class="contentText">{{activityText}}</view>
+       <view wx:if="{{activityImage.length>0}}" wx:for="{{activityImage}}" wx:key="{{index}}">
+       <image src='{{item}}'></image>
+       </view>
+    </view>
+    <i-notice-bar icon="systemprompt" style="margin-top:50px;">评论</i-notice-bar>
+    <view class='commitList' wx:if="{{commitList.length>0}}" wx:for="{{commitList}}" wx:key="{{index}}">
+       <view><view class="name">{{item.userName}}:</view>{{item.commentText}}</view>
+    </view>
+    <view class='commitList' hidden="{{show==false}}"><text>很可惜，赞无评论</text></view>
+    <view class='like' bindtap='showLike'>
+        <block wx:if="{{hasUserInfo==true}}"> 
+            <block wx:if="{{likeThis==false}}">
+               <i-icon type="like" size="50" color="#80848f" ></i-icon>
+               <text>点个赞吧</text>
+            </block>
+             <image wx:else class='likethis' src='../../../pages/img/love.gif' ></image> 
+        </block>   
+    </view>
+    <view class="footer">
+      <button  wx:if="{{!hasUserInfo && canIUse}}" class='userinfoBtn' open-type="getUserInfo" bindgetuserinfo="getUserInfo"><view>授权后可评论😎</view></button>
+    <block wx:else>
+        <view class='commentInput'><input bindinput="reviewValue" value='{{inputReview}}' class='input' type="text" placeholder="尽管吐槽吧....." ></input></view>
+        <button class='commentBtn' data-value='{{inputReview}}' bindtap='sendReview'>发送</button>
+    </block>
+   </view>
+   </view>

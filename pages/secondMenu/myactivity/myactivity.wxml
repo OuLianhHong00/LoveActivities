@@ -1,0 +1,31 @@
+<!--pages/secondMenu/myactivity/myactivity.wxml-->
+<!--活动展示，-->
+     <view class="activity_list" wx:for="{{activities}}" wx:key="index">
+     <view class="timer">
+     <text>{{item.year}}</text>
+     <text id='hour'>{{item.hour}}</text>
+     </view>
+      <view class="post_card">
+         <navigator url='../secondMenu/chart/chart?type=1&id={{item.activityid}}&sum={{item.sum}}'>   
+           <image class="act_image" src="{{item.activityAvator}}" mode="scaleToFill"></image>
+           <text class="title">{{item.activityTitle}}</text>
+           <view class="content">
+               <view>{{item.activityText}}</view>
+            </view>
+        </navigator>
+         <view class="footer">
+                <i-icon type="like" size="18" color="#80848f" bindtap='reviewActivity' data-id="{{item.activityid}}" data-sum="{{item.sum}}"></i-icon>
+                <text wx:if="{{item.sum!=null}}">{{item.sum}}</text> 
+                <text wx:else>点赞</text> 
+                <i-icon type="message" size="18" color="#80848f" bindtap='reviewActivity' data-id="{{item.activityid}}" data-sum="{{item.sum}}"></i-icon>
+                <text wx:if="{{item.count!=null}}">{{item.count}}</text>
+                 <text wx:else>评论</text>
+                  <i-icon type="delete" size="18" color="#80848f" bindtap='deleteActivity' data-id="{{item.activityid}}" data-title="{{item.activityTitle}}" data-i="{{index}}"></i-icon>
+                  <text bindtap='deleteActivity' data-id="{{item.activityid}}" data-title="{{item.activityTitle}}" data-i="{{index}}">删除</text>
+                   <i-icon type="editor" size="18" color="#80848f" bindtap='editorActivity' data-id="{{item.activityid}}"></i-icon>
+                  <text bindtap='editorActivity' data-id="{{item.activityid}}">编辑</text>
+          </view>
+        </view>
+      </view>
+       <i-message id="message" />
+   <i-load-more tip='loveactivity' loading="{{loadMore}}"/>

@@ -1,0 +1,8 @@
+<!--pages/secondMenu/aboutme/aboutme.wxml-->
+<image class="head" src='../../img/me.png.'></image>
+<view class="selflist">
+    <i-cell-group >
+        <i-cell title="反馈"  is-link url="../../thirdMenu/feedback/feedback"></i-cell>
+        <i-cell title="鸣谢"  is-link url="../../thirdMenu/gratitude/gratitude"></i-cell>
+        </i-cell-group >
+   </view>

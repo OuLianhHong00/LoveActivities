@@ -1,0 +1,63 @@
+<!--pages/publishactivity/publishactvity.wxml-->
+<!--发布活动说说界面-->
+<view>
+   <view class="navbar">
+      <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>
+   </view>
+<!--活动-->
+<view hidden="{{currentTab!==0}}">
+    <view class='tab_01'>
+    <form bindsubmit='submitActivity' bindreset='resetActivity'>
+     <input class="iTitle" type='text' name="atitle" placeholder='请输入活动标题' auto-focus ></input>
+    <textarea class="aContent"    maxlength='-1' placeholder-class='paContent' name="acontent"  placeholder='你的活动详情(应包括内容地点时间)……' ></textarea>
+    <!--加载图片-->
+    <view class="chooseImage">
+       <!--展示添加的图片-->
+          <view wx:for="{{chooseImageUrl}}" wx:key="{{key}}" class='chooseImageWrap'>
+              <image class='chooseimg' src="{{item}}"></image>
+              <text class="chooseImageClose" data-index="{{index}}" bindtap="close">X</text>
+          </view>
+      <!--加号框框-->
+         <view wx:if="{{chooseImageUrl.length<9}}" class="ax" bindtap="choosephoto">
+              <image class="img" src="../../img/addpicture.png"></image>
+         </view>
+    </view>
+    <!--选择标题头像-->
+    <view class="chooseTitleImg" bindtap='chooseTitleImg'>点击选择活动头像（若不选择，则默认选第一张）
+    <image wx:if="{{visibleTA}}" src="{{titleAvater}}"></image>
+    <text wx:if="{{titleAvater!=''}}" bindtap='resetTitleAvater' class="resetTitleAvater">重选</text>
+    </view>
+    <!--提交-->
+    <view class="btn">
+          <button class='submit' hover-class="hsubmit" form-type='submit' >发布</button>
+          <button class='reset' hover-class="hreset" form-type='reset'>重置</button>
+    </view>
+    </form>
+    </view>
+</view>
+<!--悄悄话-->
+<view hidden="{{currentTab!==1}}">
+ <view class='tab_02'>
+    <form bindsubmit='submitPillow' bindreset='resetPillow'>
+    <textarea class="aContent"   maxlength='-1'  placeholder-class='paContent' name="qcontent"  placeholder='此刻你的想法……' ></textarea>
+    <!--加载图片-->
+    <view class="chooseImage">
+       <!--展示添加的图片-->
+          <view wx:for="{{chooseImageUrl}}" wx:key="{{key}}" class='chooseImageWrap'>
+              <image class='chooseimg' src="{{item}}"></image>
+              <text class="chooseImageClose" data-index="{{index}}" bindtap="close">X</text>
+          </view>
+      <!--加号框框-->
+         <view wx:if="{{chooseImageUrl.length<9}}" class="ax" bindtap="choosephoto">
+              <image class="img" src="../../img/addpicture.png"></image>
+         </view>
+    </view>
+    <!--提交-->
+    <view class="btn">
+          <button class='submit'  form-type='submit'>发布</button>
+          <button class='reset'  form-type='reset'>重置</button>
+    </view>
+    </form>
+ </view>
+</view>
+</view>

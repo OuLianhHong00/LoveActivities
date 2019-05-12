@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "i-icon": "../../dist/icon/index",
+      "i-load-more": "../../dist/load-more/index",
+      "i-message": "../../dist/message/index"
+  }
+}

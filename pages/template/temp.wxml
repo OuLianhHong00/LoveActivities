@@ -1,0 +1,47 @@
+<template name='pillow'>
+       <view class="secoll-item">
+       <!--头像-->
+       <view class="item-head">
+           <image src='{{userAvator}}' mode="scaleToFill"></image>
+       </view>
+       <!--右边详情-->
+       <view class="item-detail">
+          <text id="name">{{userName}}</text>
+          <i-icon class="fold" type='unfold'size="24" color='#C0C0C0' wx:if="{{sortIndex!=0}}" bindtap='chooseEdit' data-show='{{showModels}}' data-dex='{{index}}' data-id='{{ideaid}}'></i-icon>
+       
+          <!--显示的编辑按钮  -->
+          <view class="model" wx:if="{{showModels==true}}">
+            <view bindtap='editorPillow' data-id='{{ideaid}}' ><i-icon type='editor' size='22' color='#00BFFF'></i-icon><text>编辑</text></view>
+            <view bindtap='trashPillow' data-id='{{ideaid}}' data-inde='{{index}}'><i-icon type='trash' size='22' color='#00BFFF'></i-icon><text>删除</text></view>
+          </view>
+        
+          <!--内容-->
+          <text>{{ideaText}}</text>
+          <block wx:if="{{ideaImage.length>0}}" wx:for="{{ideaImage}}" wx:for-item="obj" wx:key="index">
+          <image src="{{obj}}" mode="scaleToFill"></image>
+          </block>
+          <!--内容底那排-->
+          <view class="footer">
+                <i-icon type="clock" size="20" color="#80848f"></i-icon>
+                <text>{{time}}</text>
+                <view bindtap='likeClick' data-id='{{ideaid}}' data-islike="{{status}}" data-dex="{{index}}" 
+                data-userid="{{userId}}"  class="like_box">
+                   <i-icon type="like" size="20" color="#80848f" wx:if="{{status!=1}}"></i-icon>
+                   <i-icon type="like_fill" size="20" color="#FFB6C1" wx:else></i-icon>
+                   <text>{{sum}}</text>
+                </view>
+                <i-icon type="message" size="20" color="#80848f" bindtap='reviewClick' data-show='{{visible}}' data-dex='{{index}}'></i-icon>
+                <text>{{count}}</text>
+          </view>
+            <!--评论详情-->
+          <block style="margin-top:10px"  wx:if="{{commentList.length>0}}" wx:for="{{commentList}}" wx:key="{{commit.commentId}}" wx:for-item="commit">
+           <view class='commitList'><view class="name">{{commit.userName}}:</view>{{commit.commentText}}</view>
+           </block> 
+        </view>
+       </view>
+        <!--评论-->
+           <view class='review' wx:if="{{visible==true}}">
+           <input type='text' focus placeholder='写下你的评论' value='{{inputReview}}' bindinput='reviewValue'></input>
+           <button data-id='{{ideaid}}'  bindtap='sendReview' data-dex='{{index}}'>发送</button>
+           </view> 
+       </template>

@@ -19,14 +19,20 @@
   border-radius: 50%;
 }
 .text{
-  display: inline-block;
-  width:250px;
+  float: right;
+  font-size: 20px;
+  margin: 50px 150px 50px 30px;
 }
 .userinfo-nickname {
   color:white;
 }
+.selfsign{
+  background-color: #483d8b;
+  padding: 0 15px;
+}
 .sign{
   font-size: 14px;
+  color: white;
 }
 .selflist{
   margin-top: 20px;
@@ -35,4 +41,9 @@
 .selflist i-cell{
   display: inline-block;
   width: 93%;
+}
+textarea{
+  width: 250px;
+  margin: 10px;
+  font-size: 14px;
 }

@@ -1,0 +1,76 @@
+<!--pages/activity/activity.wxml-->
+<view class="container">
+<i-tabs current="{{ current }}" color="#f759ab" bindchange="handleChange">
+    <i-tab key="tab1" title="活动"></i-tab>
+    <i-tab key="tab2" title="竞赛"></i-tab>
+</i-tabs>
+<view wx:if="{{current=='tab1'}}">
+   <!--发布按钮-->
+  <view class="addfound" bindtap='publishActivity'>
+    <i-icon type="add" size="48" color="#F8E0EC" />
+  </view>
+  <i-notice-bar icon="systemprompt">
+    你可以参与的活动
+</i-notice-bar>
+<!--搜索框-->
+  <view class="search">
+  <view class="icon_search">
+         <i-icon type="search" size="25" color="#FAF0E6" bindtap='queryValue'></i-icon>
+    </view>
+    <input value="{{seachValue}}" placeholder=" 输入关键词进行搜索"  bindinput='searchInput' bindconfirm='queryValue'></input>
+</view>
+   <!--活动展示，-->
+     <view class="activity list">
+      <view class="post_card" wx:for="{{activities}}" wx:key="index">
+         <navigator url='../secondMenu/chart/chart?type=1&id={{item.activityid}}&sum={{item.sum}}'>   
+           <image class="act_image" src="{{item.activityAvator}}" mode="scaleToFill"></image>
+           <text class="title">{{item.activityTitle}}</text>
+              <view class='user'>
+               <i-avatar src="{{item.userAvator}}" size="30"></i-avatar>
+               <view class="postDate">{{item.userName}}</view>
+              </view>
+           <view class="content">
+               <view>{{item.activityText}}</view>
+            </view>
+        </navigator>
+         <view class="footer">
+                <i-icon type="clock" size="20" color="#80848f"></i-icon>
+                <text>{{item.time}}</text>
+                <i-icon type="like" size="20" color="#80848f" bindtap='reviewActivity' data-id="{{item.activityid}}" data-sum="{{item.sum}}"></i-icon>
+                <text wx:if="{{item.sum!=null}}">{{item.sum}}</text> 
+                <text wx:else>点赞</text> 
+                <i-icon type="message" size="20" color="#80848f" bindtap='reviewActivity' data-id="{{item.activityid}}" data-sum="{{item.sum}}"></i-icon>
+                <text wx:if="{{item.count!=null}}">{{item.count}}</text>
+                 <text wx:else>评论</text>
+          </view>
+        </view>
+      </view>
+      </view>
+      <!--竞赛-->
+      <view  wx:if="{{current=='tab2'}}">
+      <view wx:for="{{competitionList}}" wx:key="index">
+       <view class="card">
+       <view class='num'>{{index}}</view>
+       <view class='one'>
+        <navigator url='../secondMenu/chart/chart?type=3&id={{item.competeId}}&sum={{item.sum}}'>   
+       <view class="titlec">{{item.competeTitle}}</view>
+       <view class='pcontent'>大赛链接：{{item.competeContent}}</view>
+       </navigator>
+     </view>  
+     <view class='two'><image src='{{item.competeImage}}'></image></view>
+  </view>
+ <view class="footer" id="tabb">
+                <i-icon type="clock" size="20" color="#80848f"></i-icon>
+                <text>{{item.time}}</text>
+                <i-icon type="like" size="20" color="#80848f" bindtap='reviewCompete' data-id="{{item.competeId}}" data-sum="{{item.sum}}"></i-icon>
+                <text wx:if="{{item.sum!=null}}">{{item.sum}}</text> 
+                <text wx:else>点赞</text> 
+                <i-icon type="message" size="20" color="#80848f" bindtap='reviewCompete' data-id="{{item.competeId}}" data-sum="{{item.sum}}"></i-icon>
+                <text wx:if="{{item.count!=null}}">{{item.count}}</text>
+                 <text wx:else>评论</text>
+          </view>
+      </view>
+</view>
+       <i-message id="message" />
+   <i-load-more tip='{{loveactivity}}' loading="{{loadMore}}"/>
+</view>

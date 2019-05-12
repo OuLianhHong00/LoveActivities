@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "我的活动",
+  "usingComponents": {
+    "i-icon": "../../dist/icon/index",
+    "i-notice-bar": "../../dist/notice-bar/index",
+    "i-load-more": "../../dist/load-more/index",
+    "i-message": "../../dist/message/index",
+    "i-avatar": "../../dist/avatar/index"
+  }
+}

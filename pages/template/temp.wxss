@@ -1,0 +1,124 @@
+
+.container{
+  font-size: 15px;
+}
+.scroll-detail {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+.secoll-item{
+  display: flex;
+  width: 100%;
+  border-bottom: 0.2px solid darkgrey;
+}
+.item-head{
+  float: left;
+  width: 10%;
+}
+.item-head image{
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+  border-radius: 5px;
+}
+.item-detail{
+  width:85%;
+  margin-left: 30px;
+  margin-right: 10px;
+}
+.item-detail text{
+  display: block;
+  margin-top: 15px;
+  font-size: 16px;
+}
+.fold{
+  float: right;
+  margin-right: 20px;
+  margin-top: 15px;
+}
+.model{
+  position: absolute;
+  width: 200px;
+  background-color: white;
+  right: 15px;
+  z-index: 10;
+}
+.model view{
+  border-bottom: 1px solid gray;
+  }
+.model view i-icon{
+    display: inline-block;
+    width: 20%;
+  }
+.model view text{
+  display: inline-block;
+  width: 80%;
+}
+#name{
+  display: inline-block;
+  font-size: 16px;
+  color: rgb(67, 67, 150);
+  font-weight: bold;
+}
+.item-detail image{
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  margin: 10px 5px;
+}
+.footer text{
+  display: inline-block;
+  font-size: 14px;
+  color:darkgrey; 
+  font-style: unset;
+  margin-right: 20px;
+}
+.name{
+  display: inline-block;
+  color:#084B8A;
+  margin-right: 15px;
+}
+.commitList{
+  padding: 10px 5px;
+  font-size: 12px;
+  font-weight: 100px;
+  color:#1C1C1C; 
+  background-color: #FAFAFA;
+
+}
+.like_box{
+  display: inline-block;
+}
+.review{
+  width: 90%;
+  border-radius: 5px;
+  margin: auto;
+}
+.review input{
+   background-color: #f5f7f6;
+    width:72%;
+    float: left;
+    margin-top: 15rpx;
+    border-radius: 5px;
+    line-height:60rpx;
+    font-size:13px;
+    margin-left:15rpx;
+    margin-right:15rpx;
+    height: 60rpx;
+    color: #929292;
+}
+.review button{
+   background-color: #f5f7f6;
+    width:20%;
+    float: right;
+    text-align: center;
+    color: #929292;
+    height: 60rpx;
+    margin-top: 15rpx;
+    margin-right:20rpx;
+    border-radius: 5px;
+    line-height:60rpx;
+    font-size:11px;
+}

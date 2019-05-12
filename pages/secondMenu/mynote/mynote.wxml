@@ -1,0 +1,9 @@
+<!--pages/mynote/mynote.wxml-->
+<view class='header'><text>{{time}}</text>
+ <i-icon type="right" size='30' wx:if="{{isvert==true}}" color='#0101DF' bindtap='saveMynote'></i-icon>
+ <i-icon type="right" size='30' wx:else color='#BDBDBD' bindtap='saveMynote'></i-icon>
+ </view>
+<view class="textarea-wrp">
+     <textarea placeholder='从这里开始你的记录' maxlength='-1' auto-height value='{{note}}'   bindinput='bindValue' />
+ </view>
+

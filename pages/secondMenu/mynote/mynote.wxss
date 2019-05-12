@@ -1,0 +1,23 @@
+/* pages/mynote/mynote.wxss */
+.header{
+  width: 90%;
+  height: 30px;
+  font-size: 14px;
+  margin: 0 10px;
+}
+.header i-icon{
+  float: right;
+  margin-right: 10px;
+}
+.textarea-wrp {
+  padding: 0 25rpx;
+  background-color: #fff;
+  clear: both;
+}
+textarea{
+ width: 700rpx;
+ padding: 25rpx 0;
+ font-size: 15px;
+  line-height: normal;
+  letter-spacing: 2px;
+}

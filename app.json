@@ -1,36 +1,42 @@
 {
   "pages": [
-    "pages/home/home",
-    "pages/found/found",
+    "pages/activity/activity",
+    "pages/idea/idea",
     "pages/index/index",
+    "pages/secondMenu/pillowtalk/pillowtalk",
+    "pages/secondMenu/publishactivity/publishactvity",
+    "pages/secondMenu/chart/chart",
     "pages/logs/logs",
-    "pages/competition/competition",
-    "pages/hottopic/hottopic",
-    "pages/pillowtalk/pillowtalk"
+    "pages/secondMenu/mynote/mynote",
+    "pages/secondMenu/myactivity/myactivity",
+    "pages/secondMenu/aboutme/aboutme",
+    "pages/thirdMenu/feedback/feedback",
+    "pages/thirdMenu/gratitude/gratitude"
   ],
   "window": {
+    "enablePullDownRefresh": true,
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "我爱搞活动",
+    "navigationBarTitleText": "爱参与",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#EAEAEA",
-    "selectedColor": "#97FFFF",
-    "backgroundColor": "#ffffff",
-    "borderStyle": "white",
+    "selectedColor": "#1296db",
+    "backgroundColor": "white",
+    "borderStyle": "black",
     "list": [
       {
-        "pagePath": "pages/home/home",
-        "iconPath": "pages/img/first.png",
-        "selectedIconPath": "pages/img/a_first.png",
+        "pagePath": "pages/activity/activity",
+        "iconPath": "pages/img/a_found.png",
+        "selectedIconPath": "pages/img/found.png",
         "text": "首页"
       },
       {
-        "pagePath": "pages/found/found",
-        "iconPath": "pages/img/found.png",
-        "selectedIconPath": "pages/img/a_found.png",
-        "text": "活动"
+        "pagePath": "pages/idea/idea",
+        "iconPath": "pages/img/a_compete.png",
+        "selectedIconPath": "pages/img/compete.png",
+        "text": "想法"
       },
       {
         "pagePath": "pages/index/index",
@@ -39,5 +45,6 @@
         "text": "我呀"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

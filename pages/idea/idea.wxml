@@ -1,0 +1,10 @@
+<!--首页-->
+ <import src='../template/temp.wxml'/>
+<view class="container" >
+   <!--分享详情展示-->
+   <block wx:for="{{shareDetail}}" wx:for-item="item" wx:key="index">
+  <template is="pillow" data="{{...item}}"/>
+</block>
+   <i-message id="message" />
+   <i-load-more tip='loveactivity' loading="{{loadMore}}"/>
+</view>
