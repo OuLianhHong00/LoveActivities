@@ -9,13 +9,13 @@
   position: relative;
   flex: auto;
   text-align: center;
-  line-height: 80rpx;
+  line-height: 60rpx;
   font-style: italic;
   font-family: cursive;
   font-stretch: expanded;
 }
 .navbar .item.active{
-  color: #FFCC00;
+  color: #527ae7;
 }
 .navbar .item.active:after{
   content: "";
@@ -25,24 +25,31 @@
   left: 0;
   right: 0;
   height: 4rpx;
-  background: #FFCC00;
+  background: #527ae7;
 }
 .tab_01{
   margin: 0 10px;
 }
+form{
+  width: 100%;
+}
 .iTitle{
-  width: 90%;
-  font-size: 15px;
-  display: inline-block;
+  width: 95%;
+  font-size: 18px;
+  line-height: 25px;
   border: 1px solid 	#FFF0F5;
   border-radius: 5px;
   margin: 5px 0px;
 }
+textarea{
+  width: 95%;
+  margin: auto;
+}
 .aContent{
-  font-size: 15px;
+  font-size: 18px;
 }
 .paContent{
-  font-size: 15px;
+  font-size: 18px;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .chooseImageWrap{
@@ -54,17 +61,17 @@
 }
 .ax{
   display: inline-block;
-  width:90px;
-  height: 90px;
+  width:150px;
+  height: 150px;
   margin: 10px;
 }
 .chooseImage image{
-  width:90px;
-  height: 90px;
+  width:150px;
+  height: 150px;
 }
 .chooseTitleImg image{
-  width:90px;
-  height: 90px;
+  width:150px;
+  height: 150px;
 }
 
 .chooseImageClose{
@@ -85,13 +92,15 @@
 }
 .submit{
   display: inline-block;
-  width:40%;
+  width:60%;
   border-radius: 10px;
   margin: 10px 10px;
+  background-color: #527ae7;
 }
 .reset{
   display: inline-block;
-  width:40%;
+  width:20%;
   border-radius: 10px;
   margin: 10px 10px;
+  background-color:rgb(219, 206, 152);
 }

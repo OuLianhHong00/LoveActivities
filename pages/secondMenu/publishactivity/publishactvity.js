@@ -3,6 +3,7 @@ var util=require('../../../utils/util.js');
 const common=require('../../../utils/upload.js')
 const request=require('../../../utils/request.js')
 var imgArr=new Array();
+var titleImg='';
 Page({
 
   /**
@@ -96,9 +97,7 @@ Page({
       var titleImage=that.data.titleAvater;
       common.uploadFile(getApp().globalData.requestUrl + '/activity/addImage', titleImage, "titelAvatar")
       .then(function(res){
-        that.data({
-          titleAvater:res.data
-        })
+       titleImg=res.data
       })
         .catch(function (data) {
           wx.showToast({
@@ -138,13 +137,13 @@ Page({
             let data1 = {
               userId: getApp().globalData.userId,
               activityText: e.detail.value.acontent,
-              activityAvator: that.data.titleAvater,
+              activityAvator: titleImg,
               activityImage: imgArr.join('&&'),
               activityTitle: e.detail.value.atitle,
               activityTime: time
             }
             var activityUrl = getApp().globalData.requestUrl + '/activity/addActivity';
-            request.requestPostApi(activityUrl, data1, this, this.successSaveActivity, this.failSave);
+            request.requestPostApi(activityUrl, data1, that, that.successSaveActivity, that.failSave);
           }
         })
         .catch(function (data) {

@@ -1,5 +1,7 @@
 /* pages/activity/activity.wxss */
-
+.i-tabs-tab-title-current{
+  color: black;
+}
 .addfound{
   position: fixed;
   bottom: 40px;
@@ -7,14 +9,14 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: #2E64FE;
+  background-color: #4171f5;
   opacity: 0.5;
 }
 .search{
   width: 90%;
   height: 30px;
   border-radius: 10px;
-  border: 1px solid rgb(253, 195, 3);
+  border: 1px solid #1E90FF;
   margin-left: 15px;
   margin-top: 15px;
   margin-bottom: 10px;
@@ -22,7 +24,7 @@
 .search input{
   display: inline-block;
   width: 90%;
-  font-size: 12px;
+  font-size: 14px;
 }
 .icon_search{
   display: inline-block;
@@ -57,9 +59,9 @@
    width: 70%;
    margin-left: 15px;
    line-height: 30px;
-   font-size: 15px;
+   font-size: 16px;
    font-family: 微软雅黑;
-   font-weight: 400px;
+   font-weight: 500px;
 }
 .act_image{
   border-radius: 10px 10px 10px 10px;
@@ -72,13 +74,21 @@
   color:darkgrey; 
   margin: 10px 20px;
 }
+.item1{
+  display: inline-block;
+  width: 50%;
+}
+.item{
+  display: inline-block;
+  width: 25%;
+}
 .footer text{
   font-size: 14px;
   color:darkgrey; 
   font-style: unset;
 }
 .footer i-icon{
-  margin-left: 18px;
+  margin-left: 15px;
   margin-right: 9px;
 }
 .like_box{

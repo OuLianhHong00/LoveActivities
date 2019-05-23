@@ -1,4 +1,5 @@
 // pages/thirdMenu/feedback/feedback.js
+const request=require('../../../utils/request.js');
 var userId;
 Page({
 
@@ -20,6 +21,34 @@ switchChange:function(e){
   changeInput:function(e){
     this.setData({
       feedbackWord:e.detail.value
+    })
+  },
+  getUp:function(){
+    var that=this;
+    var url = getApp().globalData.requestUrl + '/users/saveFeedBack';
+    var params = {
+    userId:userId,
+    content:that.data.feedbackWord
+    }
+    request.requestPostApi(url, params, that, that.successGet, that.failGet); 
+  },
+  successGet:function(res,self){
+    if(res.data='success'){
+      wx.showToast({
+        title: '反馈成功',
+      })
+      wx.switchTab({
+        url: '../../../pages/index/index',
+      })
+    }else{
+      wx.showToast({
+        title: '反馈失败',
+      })
+    }
+  },
+  failGet:function(res,self){
+    wx.showToast({
+      title: '反馈失败',
     })
   },
   /**

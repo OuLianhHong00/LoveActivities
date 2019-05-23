@@ -1,5 +1,5 @@
 <!--pages/secondMenu/aboutme/aboutme.wxml-->
-<image class="head" src='../../img/me.png.'></image>
+<image class="head" src='../../img/head.png'></image>
 <view class="selflist">
     <i-cell-group >
         <i-cell title="反馈"  is-link url="../../thirdMenu/feedback/feedback"></i-cell>

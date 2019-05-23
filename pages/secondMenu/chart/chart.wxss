@@ -1,4 +1,5 @@
 /* pages/chart/chart.wxss */
+
 .container{
   font-size: 15px;
   font-family:微软雅黑;
@@ -22,6 +23,9 @@
   font-family: 微软雅黑;
   font-size: 16px;
   margin:5px 10px;
+}
+.contentText textarea{
+  width: 100%;
 }
 .content image{
   float: left;

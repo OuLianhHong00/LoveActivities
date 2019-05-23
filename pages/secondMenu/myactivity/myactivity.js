@@ -109,7 +109,8 @@ Page({
     that.setData({
       count: res.data.total[0].sum,
       page: 1,
-      activities: activity_list
+      activities: activity_list,
+      loadMore:false
     }) 
   },
   failFirstLoad: function (res, selfObj) {
@@ -184,7 +185,8 @@ Page({
     }
     that.setData({
       page: that.data.page + 1,
-      activities: activity_list
+      activities: activity_list,
+      loadMore:false
     })
   },
   failLoadMore: function (res, selfObj) {

@@ -6,7 +6,9 @@
     </view>
     <view class="title">{{activityTitle}}</view>
     <view class="content">
-       <view class="contentText">{{activityText}}</view>
+       <div class="contentText">
+       <text>{{activityText}}</text>
+      </div>
        <view wx:if="{{activityImage.length>0}}" wx:for="{{activityImage}}" wx:key="{{index}}">
        <image src='{{item}}'></image>
        </view>

@@ -1,2 +1,5 @@
 <!--pages/thirdMenu/gratitude/gratitude.wxml-->
-<text>pages/thirdMenu/gratitude/gratitude.wxml</text>
+<view class="contain">
+<view>非常感谢大家能够使用我们的爱参与微信小程序，我们的小程序旨在为大家提供方便快捷的查询活动或竞赛。在这里，你们可以发布自己学校的各种有趣的活动，可以互相借鉴彼此的新颖的点，让自己的活动变得丰富多彩。你们也可以看看自己可以参加那些大学的竞赛。这里我们的后台管理员会不定时的为大家推荐各类竞赛。</view>
+<view>我们也将严格审查，避免乱发活动的情况发生</view>
+</view>

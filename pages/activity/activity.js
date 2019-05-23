@@ -22,6 +22,7 @@ Page({
       competeCount:0,
       competeMaxid:0
   },
+  
   handleChange({ detail }) {
     var that=this;
     this.setData({
@@ -52,6 +53,30 @@ Page({
   //搜索按钮
   queryValue: function () {
     var that = this;
+    var url = getApp().globalData.requestUrl + '/activity/searchActivity';
+    var params = {
+     data:'%'+that.data.searchValue+'%'
+    }
+    request.requestGetApi(url, params, that, that.successSearch, that.failSearch); 
+  },
+  successSearch:function(res,self){
+    var that=this;
+    var activity_list=[];
+    if(res.data.activity.length>0){
+      for (let i = 0; i < res.data.activity.length; i++) {
+        res.data.activity[i].activityText = res.data.activity[i].activityText.substring(0, 60) + "…";
+        activity_list.push(res.data.activity[i])
+      }
+      that.setData({
+        activities: activity_list,
+        loadMore: false
+      })
+    } else {
+      that.setData({
+        loadMore: false,
+        loveactivity: '无此类活动'
+      })
+    } 
   },
   
   //评论/点赞点击
@@ -108,7 +133,7 @@ Page({
     console.log(res.data)
     if (res.data.total[0].sum > 0) {
     for (let i = 0; i < res.data.activities.length; i++) {
-      res.data.activities[i].activityText = res.data.activities[i].activityText.substring(0, 20);
+      res.data.activities[i].activityText = res.data.activities[i].activityText.substring(0, 60)+"…";
       activity_list.push(res.data.activities[i])
     }
     console.log(res.data.total[0].sum)
@@ -126,12 +151,10 @@ Page({
       })
     }
     if(isPull==true){
-      setTimeout(function () {
         $Message({
           content: '刷新成功。',
           duration: 2
         });
-      }, 200);
       wx.hideNavigationBarLoading();
       isPull=false;
     }
@@ -140,8 +163,9 @@ Page({
     var that = this;
     var compete_list = [];
     console.log(res.data)
+    if (res.data.total[0].sum>0){
     for (let i = 0; i < res.data.competeList.length; i++) {
-      res.data.competeList[i].competeContent = res.data.competeList[i].competeContent.substring(0, 20);
+      res.data.competeList[i].competeContent = res.data.competeList[i].competeContent.substring(0, 60)+"…";
       compete_list.push(res.data.competeList[i])
 
     }
@@ -153,6 +177,20 @@ Page({
       competitionList: compete_list,
       loadMore: false
     })
+    }else{
+      that.setData({
+        loadMore: false,
+        loveactivity: '暂无竞赛'
+      })
+    }
+    if (isPull == true) {
+      $Message({
+        content: '刷新成功。',
+        duration: 2
+      });
+      wx.hideNavigationBarLoading();
+      isPull = false;
+    }
   },
   failFirstLoad: function (res, selfObj) {
     console.log('失败加载')
@@ -186,8 +224,8 @@ Page({
       loadMore: true
     })
     isPull=true;
-    if(that.data.current=='tab1'){
     wx.showNavigationBarLoading();
+    if(that.data.current=='tab1'){
     var url = getApp().globalData.requestUrl + '/activity/selectActivity';
     var params = {
       page: 0,//第几页
@@ -195,7 +233,7 @@ Page({
       catagroy: 0,
       count: 0
     }
-    request.requestPostApi(url, params, this, this.successFirstLoad, this.failFirstLoad);
+    request.requestPostApi(url, params, that, that.successFirstLoad, that.failFirstLoad);
     }else{
       var urlC = getApp().globalData.requestUrl + '/compete/selectCompete';
       var paramsC = {
@@ -257,7 +295,7 @@ Page({
       var activity_list = that.data.activities;
       console.log(res.data)
       for (let i = 0; i < res.data.activities.length; i++) {
-        res.data.activities[i].activityText = res.data.activities[i].activityText.substring(0, 20);
+        res.data.activities[i].activityText = res.data.activities[i].activityText.substring(0, 60)+"…";
         activity_list.push(res.data.activities[i])
       }
       that.setData({
@@ -271,7 +309,7 @@ Page({
       var compete_list = that.data.competitionList;
       console.log(res.data)
       for (let i = 0; i < res.data.competeList.length; i++) {
-        res.data.competeList[i].competeContent = res.data.competeList[i].competeContent.substring(0, 20);
+        res.data.competeList[i].competeContent = res.data.competeList[i].competeContent.substring(0, 60)+"…";
         compete_list.push(res.data.competeList[i])
 
       }

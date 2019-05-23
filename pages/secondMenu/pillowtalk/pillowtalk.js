@@ -16,7 +16,7 @@ Page({
     pagesize: 5,
     count: 0,
     maxid: 0,
-    loadMore: true,
+    loadMore: false,
     shareDetail: []
   },
 
@@ -225,6 +225,9 @@ Page({
       userId: getApp().globalData.userId,
       catagroy: 1
     }
+      this.setData({
+        loadMore: true
+      })
     request.requestPostApi(url, params, this, this.successFistLoad, this.failFirstLoad);
     }
   },
@@ -269,7 +272,8 @@ Page({
               shareDetail: ideaList,
               count: res.data.total[0].sum,
               maxid: res.data.idea[0].ideaid,
-              page: 1
+              page: 1,
+              loadMore:false
             })
             console.log(ideaList)
           }
@@ -321,6 +325,9 @@ Page({
       userId: getApp().globalData.userId,
       catagroy: 1
     }
+    this.setData({
+      loadMore: true
+    })
     request.requestPostApi(url, params, this, this.successFistLoad, this.failFirstLoad);
   },
 
@@ -337,12 +344,12 @@ Page({
         userId: getApp().globalData.userId,
         catagroy: 1
       }
+      that.setData({
+        loadMore: true
+      })
       request.requestPostApi(url, params, that, that.successLoadMore, that.failFirstLoad);
     } else {
       setTimeout(function () {
-        that.setData({
-          loadMore: false,
-        });
         $Message({
           content: '所有数据加载完毕。',
           duration: 2
@@ -389,7 +396,8 @@ Page({
           if (ideaList.length - that.data.page * that.data.pagesize == res.data.idea.length)
             that.setData({
               shareDetail: ideaList,
-              page: that.data.page + 1
+              page: that.data.page + 1,
+              loadMore:false
             })
           console.log('moewIdeaList' + ideaList)
         },

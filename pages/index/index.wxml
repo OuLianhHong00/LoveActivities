@@ -3,36 +3,36 @@
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
+    <view class="self_header">
     <view class="img">
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       </view>
       <view class="text">
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>  
       </view>
-    </block>
-  </view>
-  <!--个性签名-->
+       <!--个性签名-->
   <view class="selfsign">
-  <i-icon type="editor" size="25" color="white" bindtap="fixsign" ></i-icon>
+  <i-icon type="editor" size="30" color="black" bindtap="fixsign" ></i-icon>
          <text class="sign"> {{sinature}}</text>
+  </view>
+      </view>
+    </block>
   </view>
 <!--修改个性签名的弹窗-->
 <i-modal title="修改个性签名" visible="{{visible}}" bind:ok="handleOK" bind:cancel="handleClose">
-  <textarea value="{{arrsign}}" type="textarea"  placeholder="请输入你的个性签名(最多50字)" maxlength="50" autofocus bindinput="changeInput" auto-height></textarea>
+  <textarea  wx:if="{{visible==true}}" value="{{arrsign}}" type="textarea"  placeholder="请输入你的个性签名(最多50字)" maxlength="50" autofocus bindinput="changeInput" auto-height></textarea>
 </i-modal>
 
 <!--各个列表-->
    <view class="selflist">
     <i-cell-group >
-     <i-icon type="label" size="20" color="SkyBlue" ></i-icon>   
+     <i-icon type="label" size="22" color="SkyBlue" ></i-icon>   
         <i-cell title="我的活动"  is-link url="../secondMenu/myactivity/myactivity"></i-cell>
-      <i-icon type="homepage" size="20" color="DarkTurquoise" ></i-icon>   
+      <i-icon type="homepage" size="22" color="DarkTurquoise" ></i-icon>   
         <i-cell title="我的悄悄话"  is-link url="../secondMenu/pillowtalk/pillowtalk"></i-cell>
-      <i-icon type="document" size="20" color="#008080" ></i-icon>
+      <i-icon type="document" size="22" color="#008080" ></i-icon>
         <i-cell title="我的记事本"  is-link url="../secondMenu/mynote/mynote"></i-cell>
-      <i-icon type="add" size="20" color="#008080" ></i-icon>
-        <i-cell title="我的收藏"  is-link url=" "></i-cell> 
-      <i-icon type='mine' size='20' color='#008080' ></i-icon>
+      <i-icon type='mine' size='22' color='#008080' ></i-icon>
       <i-cell title="关于我"  is-link url="../secondMenu/aboutme/aboutme"></i-cell>
         </i-cell-group >
    </view>

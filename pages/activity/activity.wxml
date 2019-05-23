@@ -1,6 +1,6 @@
 <!--pages/activity/activity.wxml-->
 <view class="container">
-<i-tabs current="{{ current }}" color="#f759ab" bindchange="handleChange">
+<i-tabs current="{{ current }}"  bindchange="handleChange">
     <i-tab key="tab1" title="活动"></i-tab>
     <i-tab key="tab2" title="竞赛"></i-tab>
 </i-tabs>
@@ -9,7 +9,7 @@
   <view class="addfound" bindtap='publishActivity'>
     <i-icon type="add" size="48" color="#F8E0EC" />
   </view>
-  <i-notice-bar icon="systemprompt">
+  <i-notice-bar icon="systemprompt" background-color="#1E90FF" closable='true'>
     你可以参与的活动
 </i-notice-bar>
 <!--搜索框-->
@@ -34,14 +34,19 @@
             </view>
         </navigator>
          <view class="footer">
-                <i-icon type="clock" size="20" color="#80848f"></i-icon>
+                <view class="item1"><i-icon type="clock" size="20" color="#80848f"></i-icon>
                 <text>{{item.time}}</text>
+                </view>
+                <view class="item">
                 <i-icon type="like" size="20" color="#80848f" bindtap='reviewActivity' data-id="{{item.activityid}}" data-sum="{{item.sum}}"></i-icon>
                 <text wx:if="{{item.sum!=null}}">{{item.sum}}</text> 
                 <text wx:else>点赞</text> 
+                </view>
+                <view class="item">
                 <i-icon type="message" size="20" color="#80848f" bindtap='reviewActivity' data-id="{{item.activityid}}" data-sum="{{item.sum}}"></i-icon>
                 <text wx:if="{{item.count!=null}}">{{item.count}}</text>
                  <text wx:else>评论</text>
+                 </view>
           </view>
         </view>
       </view>
@@ -60,14 +65,20 @@
      <view class='two'><image src='{{item.competeImage}}'></image></view>
   </view>
  <view class="footer" id="tabb">
+           <view class="item1">
                 <i-icon type="clock" size="20" color="#80848f"></i-icon>
                 <text>{{item.time}}</text>
+            </view>
+            <view class='item'>
                 <i-icon type="like" size="20" color="#80848f" bindtap='reviewCompete' data-id="{{item.competeId}}" data-sum="{{item.sum}}"></i-icon>
                 <text wx:if="{{item.sum!=null}}">{{item.sum}}</text> 
                 <text wx:else>点赞</text> 
+              </view>
+              <view class="item">
                 <i-icon type="message" size="20" color="#80848f" bindtap='reviewCompete' data-id="{{item.competeId}}" data-sum="{{item.sum}}"></i-icon>
                 <text wx:if="{{item.count!=null}}">{{item.count}}</text>
                  <text wx:else>评论</text>
+              </view>
           </view>
       </view>
 </view>

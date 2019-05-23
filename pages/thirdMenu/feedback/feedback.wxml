@@ -2,5 +2,5 @@
 <view class='contain'>
 <view class='tr'><text>逆名反馈</text><switch checked bindchange="switchChange" /></view>
 <textarea  class="text1" value="{{feedbackWord}}" type="textarea"  placeholder="请输入你想反馈的话……" maxlength="-1" bindinput="changeInput" ></textarea>
-<button class="btn" type='primary' >提交</button>
+<button class="btn" type='primary'  bindtap='getUp'>提交</button>
 </view>

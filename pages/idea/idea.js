@@ -275,7 +275,8 @@ Page({
                shareDetail:ideaList,
                count:res.data.total[0].sum,
                maxid:res.data.idea[0].ideaid,
-               page:1
+               page:1,
+               loadMore:false
           })
           console.log(ideaList)
         }
@@ -401,7 +402,8 @@ Page({
           if (ideaList.length-that.data.page*that.data.pagesize == res.data.idea.length)
             that.setData({
               shareDetail: ideaList,
-              page: that.data.page+1
+              page: that.data.page+1,
+              loadMore:false
             })
           console.log('moewIdeaList'+ideaList)
         },

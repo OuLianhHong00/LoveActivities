@@ -69,7 +69,6 @@ Page({
     var that=this;
     wx.setNavigationBarTitle({
       title: '个人主页面',
-      navigationBarBackgroundColor:'darkslateblue',
       color:'white'
     });
     if (app.globalData.userInfo) {

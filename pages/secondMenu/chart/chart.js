@@ -185,9 +185,9 @@ Page({
     var img=res.data.activity[0].activityImage.split("&&");
     that.setData({
       activityTitle:res.data.activity[0].activityTitle,
-      activityText: res.data.activity[0].activityText,
       activityImage: img,
       time:res.data.activity[0].time,
+      activityText: res.data.activity[0].activityText
     })
     }
     else{
