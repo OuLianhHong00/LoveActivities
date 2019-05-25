@@ -58,11 +58,10 @@
        <view class='num'>{{index}}</view>
        <view class='one'>
         <navigator url='../secondMenu/chart/chart?type=3&id={{item.competeId}}&sum={{item.sum}}'>   
-       <view class="titlec">{{item.competeTitle}}</view>
-       <view class='pcontent'>大赛链接：{{item.competeContent}}</view>
+        <image src='{{item.competeImage}}'></image>
+       <text class="titlec">{{item.competeTitle}}</text>
        </navigator>
      </view>  
-     <view class='two'><image src='{{item.competeImage}}'></image></view>
   </view>
  <view class="footer" id="tabb">
            <view class="item1">

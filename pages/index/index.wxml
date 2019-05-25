@@ -29,7 +29,7 @@
      <i-icon type="label" size="22" color="SkyBlue" ></i-icon>   
         <i-cell title="我的活动"  is-link url="../secondMenu/myactivity/myactivity"></i-cell>
       <i-icon type="homepage" size="22" color="DarkTurquoise" ></i-icon>   
-        <i-cell title="我的悄悄话"  is-link url="../secondMenu/pillowtalk/pillowtalk"></i-cell>
+        <i-cell title="我的想法"  is-link url="../secondMenu/pillowtalk/pillowtalk"></i-cell>
       <i-icon type="document" size="22" color="#008080" ></i-icon>
         <i-cell title="我的记事本"  is-link url="../secondMenu/mynote/mynote"></i-cell>
       <i-icon type='mine' size='22' color='#008080' ></i-icon>

@@ -10,17 +10,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    navbar: ['活动', '悄悄话'],
-    currentTab: 0,
+    currentTab: 'tab1',
     chooseImageUrl:[],
     imgCount:0,
     visibleTA:false,
     titleAvater:''
   },
-  navbarTap: function (e) {
+  navbarTap: function ({detail}) {
+    var that = this;
     this.setData({
-      currentTab: e.currentTarget.dataset.idx
-    })
+      currentTab: detail.key
+    });
   },
   //选择图片
   choosephoto:function(){
@@ -97,6 +97,9 @@ Page({
       var titleImage=that.data.titleAvater;
       common.uploadFile(getApp().globalData.requestUrl + '/activity/addImage', titleImage, "titelAvatar")
       .then(function(res){
+        that.setData({
+          titleAvater:res.data
+        })
        titleImg=res.data
       })
         .catch(function (data) {
@@ -131,7 +134,6 @@ Page({
         common.uploadFile(getApp().globalData.requestUrl + '/activity/addImage',imgUrl,"contentImage")
         .then(function(res){
           imgArr.push(res.data)
-          console.log(imgArr)  
           if(imgArr.length==that.data.chooseImageUrl.length){
             //上传其他内容
             let data1 = {

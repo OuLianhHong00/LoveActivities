@@ -28,10 +28,11 @@
   width: 100%;
 }
 .content image{
-  float: left;
-  width: 150px;
+  display: block;
+  width: 80%;
   height: 150px;
-  margin: 10px;
+  margin: auto;
+  margin-top: 5px;
 }
 .name{
   display: inline-block;

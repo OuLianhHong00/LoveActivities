@@ -127,80 +127,6 @@ Page({
     }
     request.requestPostApi(url, params, that, that.successFistLoad, that.failFirstLoad); 
   },
-  successFistLoad: function (res, selfObj) {
-    var that = this;
-    var activity_list = [];
-    console.log(res.data)
-    if (res.data.total[0].sum > 0) {
-    for (let i = 0; i < res.data.activities.length; i++) {
-      res.data.activities[i].activityText = res.data.activities[i].activityText.substring(0, 60)+"…";
-      activity_list.push(res.data.activities[i])
-    }
-    console.log(res.data.total[0].sum)
-    that.setData({
-      count: res.data.total[0].sum,
-      page: 1,
-      maxid: res.data.activities[0].activityid,
-      activities: activity_list,
-      loadMore:false
-    })
-    }else{
-      that.setData({
-        loadMore:false,
-        loveactivity:'暂无活动'
-      })
-    }
-    if(isPull==true){
-        $Message({
-          content: '刷新成功。',
-          duration: 2
-        });
-      wx.hideNavigationBarLoading();
-      isPull=false;
-    }
-  },
-  successLoadCompete:function(res,self){
-    var that = this;
-    var compete_list = [];
-    console.log(res.data)
-    if (res.data.total[0].sum>0){
-    for (let i = 0; i < res.data.competeList.length; i++) {
-      res.data.competeList[i].competeContent = res.data.competeList[i].competeContent.substring(0, 60)+"…";
-      compete_list.push(res.data.competeList[i])
-
-    }
-    console.log(res.data.total[0].sum)
-    that.setData({
-      competeCount: res.data.total[0].sum,
-      competePage: 1,
-      competeMaxid:res.data.competeList[0].competeId,
-      competitionList: compete_list,
-      loadMore: false
-    })
-    }else{
-      that.setData({
-        loadMore: false,
-        loveactivity: '暂无竞赛'
-      })
-    }
-    if (isPull == true) {
-      $Message({
-        content: '刷新成功。',
-        duration: 2
-      });
-      wx.hideNavigationBarLoading();
-      isPull = false;
-    }
-  },
-  failFirstLoad: function (res, selfObj) {
-    console.log('失败加载')
-    wx.showToast({
-      title: '请检查网络配置',
-    })
-    this.setData({
-      loadMore: false
-    })
-  },
   /**
    * 生命周期函数--监听页面隐藏
    */
@@ -233,7 +159,7 @@ Page({
       catagroy: 0,
       count: 0
     }
-    request.requestPostApi(url, params, that, that.successFirstLoad, that.failFirstLoad);
+      request.requestPostApi(url, params, that, that.successFistLoad, that.failFirstLoad);
     }else{
       var urlC = getApp().globalData.requestUrl + '/compete/selectCompete';
       var paramsC = {
@@ -290,6 +216,79 @@ Page({
         }
       }
     },
+  successFistLoad: function (res, selfObj) {
+    var that = this;
+    var activity_list = [];
+    console.log(res.data)
+    if (res.data.total[0].sum > 0) {
+      for (let i = 0; i < res.data.activities.length; i++) {
+        res.data.activities[i].activityText = res.data.activities[i].activityText.substring(0, 60) + "…";
+        activity_list.push(res.data.activities[i])
+      }
+      console.log(res.data.total[0].sum)
+      that.setData({
+        count: res.data.total[0].sum,
+        page: 1,
+        maxid: res.data.activities[0].activityid,
+        activities: activity_list,
+        loadMore: false
+      })
+    } else {
+      that.setData({
+        loadMore: false,
+        loveactivity: '暂无活动'
+      })
+    }
+    if (isPull == true) {
+      $Message({
+        content: '刷新成功。',
+        duration: 2
+      });
+      wx.hideNavigationBarLoading();
+      isPull = false;
+    }
+  },
+  successLoadCompete: function (res, self) {
+    var that = this;
+    var compete_list = [];
+    console.log(res.data)
+    if (res.data.total[0].sum > 0) {
+      for (let i = 0; i < res.data.competeList.length; i++) {
+        compete_list.push(res.data.competeList[i])
+
+      }
+      console.log(res.data.total[0].sum)
+      that.setData({
+        competeCount: res.data.total[0].sum,
+        competePage: 1,
+        competeMaxid: res.data.competeList[0].competeId,
+        competitionList: compete_list,
+        loadMore: false
+      })
+    } else {
+      that.setData({
+        loadMore: false,
+        loveactivity: '暂无竞赛'
+      })
+    }
+    if (isPull == true) {
+      $Message({
+        content: '刷新成功。',
+        duration: 2
+      });
+      wx.hideNavigationBarLoading();
+      isPull = false;
+    }
+  },
+  failFirstLoad: function (res, selfObj) {
+    console.log('失败加载')
+    wx.showToast({
+      title: '请检查网络配置',
+    })
+    this.setData({
+      loadMore: false
+    })
+  },
     successLoadMore: function(res, selfObj) {
       var that = this;
       var activity_list = that.data.activities;
@@ -309,7 +308,6 @@ Page({
       var compete_list = that.data.competitionList;
       console.log(res.data)
       for (let i = 0; i < res.data.competeList.length; i++) {
-        res.data.competeList[i].competeContent = res.data.competeList[i].competeContent.substring(0, 60)+"…";
         compete_list.push(res.data.competeList[i])
 
       }

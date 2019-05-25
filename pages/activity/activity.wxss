@@ -108,30 +108,24 @@
   margin: 10px 10px;
 }
 .one{
-  width: 55%;
+  width: 90%;
   margin: 10px 0;
   font-size: 15px;
+   position: relative;
 }
 .titlec{
-  font-size:18px;
+  position: absolute;
+  font-size:19px;
   font-family:微软雅黑;
-  font-weight: 700;
+  font-weight: 600;
+  color: white;
+  bottom: 10px;
+  left: 15px;
+  letter-spacing: 0.3em;
 }
-.pcontent{
-  font-size: 15px;
-  margin: 10px 0;
-}
-.ptime{
-  font-size: 12px;
-  color: darkgray;
-}
-.two{
-  width: 25%;
-  margin: 10px 10px;
-}
-.two image{
-  width: 90%;
-  height: 90%;
+.one image{
+  width: 95%;
+  height:150px ;
   border-radius:5px; 
 }
 #tabb{

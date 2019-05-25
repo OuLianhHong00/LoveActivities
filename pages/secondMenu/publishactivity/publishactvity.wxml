@@ -2,10 +2,13 @@
 <!--发布活动说说界面-->
 <view>
    <view class="navbar">
-      <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>
+      <i-tabs current="{{ currentTab }}"  bindchange="navbarTap">
+    <i-tab key="tab1" title="活动"></i-tab>
+    <i-tab key="tab2" title="想法"></i-tab>
+   </i-tabs>
    </view>
 <!--活动-->
-<view hidden="{{currentTab!==0}}">
+<view wx:if="{{currentTab=='tab1'}}">
     <view class='tab_01'>
     <form bindsubmit='submitActivity' bindreset='resetActivity'>
      <input class="iTitle" type='text' name="atitle" placeholder='请输入活动标题' auto-focus ></input>
@@ -36,7 +39,7 @@
     </view>
 </view>
 <!--悄悄话-->
-<view hidden="{{currentTab!==1}}">
+<view wx:if="{{currentTab=='tab2'}}">
  <view class='tab_02'>
     <form bindsubmit='submitPillow' bindreset='resetPillow'>
     <textarea class="aContent"   maxlength='-1'  placeholder-class='paContent' name="qcontent"  placeholder='此刻你的想法……' ></textarea>
